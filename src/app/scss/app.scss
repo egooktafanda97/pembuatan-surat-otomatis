@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+@import "./_mixin/space_mixins";
+@import "./package/color.scss";
+
 body {
-	font-family: 'Roboto', sans-serif;
 	margin: 0;
 	/* 1 */
 	line-height: inherit;
 	/* 2 */
 }
+
 
 // color scema
 $primary-color: #f7f7f5;
@@ -176,6 +179,8 @@ sans-serif;
 			width: 25%;
 			background-color: #f2f2f2;
 			overflow-y: auto;
+			position: fixed;
+			right: 0;
 		}
 	}
 

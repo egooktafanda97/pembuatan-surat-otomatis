@@ -1,31 +1,43 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
+import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-import reportWebVitals from "./reportWebVitals";
-
-// ===================================
-import { Provider } from "react-redux";
-import { createStore } from "redux";
-
-import reducer from "./store/index";
+// internal import =====================
+import reducer from './store/index';
+import Init from './app/___init__';
+// =====================================
 
 const store = createStore(reducer);
 
 const Routers = () => {
+  const [instance, setInstance] = useState({});
+  const [load, setLoad] = useState(false);
+  useEffect(() => {
+    setLoad(true);
+    setInstance(CONFIG);
+  }, []);
+
+  // async function getMoviesFromApi() {
+  //   try {
+  //     let response = await fetch(window?.dataSet?.initJsonUrl ?? '');
+  //     let responseJson = await response.json();
+  //     if (responseJson) {
+  //       setLoad(true);
+  //       setInstance(responseJson);
+  //     }
+  //   } catch (error) {}
+  // }
+
   return (
     <Provider store={store}>
       <React.StrictMode>
-        <App />
+        <Init InitLoad={load} Instance={instance} />
       </React.StrictMode>
     </Provider>
   );
 };
 
-ReactDOM.render(<Routers />, document.getElementById("root"));
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+ReactDOM.render(<Routers />, document.getElementById('root'));
 reportWebVitals();

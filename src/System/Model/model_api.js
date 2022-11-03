@@ -1,5 +1,7 @@
 import axios from "axios";
-const urls = require("../config/config.json").Api.api_server_url;
+import { Api, editor } from "../config/config.json";
+
+const urls = Api.api_server_url;
 
 export const export_wizard = async (data, response) => {
   try {

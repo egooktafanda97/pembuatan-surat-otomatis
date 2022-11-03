@@ -1,0 +1,357 @@
+{
+  "Api": {
+    "base_url": "http://localhost/pr-phoenix/"
+  },
+  "ActionUrl": {
+    "request_url": "https://v3.gigades.id/rest/api/wizard/getPapperRequest",
+    "save_result_url": "https://v3.gigades.id/rest/api/wizard/build"
+  },
+  "Editor": {
+    "width": "210mm",
+    "height": "100%"
+  },
+  "AttributeMenu": {
+    "Attribute": [
+      {
+        "name": "penduduk",
+        "title": "Penduduk",
+        "type": "auto",
+        "parameter": {
+          "table": "penduduk",
+          "color": "green"
+        },
+        "msg": "data akan otomatis terisi dengan data yang di pilih",
+
+        "components": [
+          {
+            "title": "Penduduk",
+            "name": "penduduk",
+            "primary": true,
+            "label": "penduduk",
+            "attr": "fildQuery",
+            "dataset": [
+              { "label": "Nik", "value": "nik" },
+              { "label": "Nomor KK", "value": "no_kk" },
+              { "label": "Nama Lengkap", "value": "nama_lengkap" },
+              { "label": "Jenis Kelamin", "value": "jenis_klamin" },
+              { "label": "Status Perkawinan", "value": "status_perkawinan" },
+              { "label": "Tempat Lahir", "value": "tempat_lahir" },
+              { "label": "Tanggal Lahir", "value": "tanggal_lahir" },
+              { "label": "Agama", "value": "agama" },
+              { "label": "Golongan Darah", "value": "gol_darah" },
+              { "label": "Pendidikan", "value": "pendidikan_terakhir" },
+              { "label": "Pekerjaan", "value": "pekerjaan" },
+              { "label": "Kewarga Negaraan", "value": "kewarga_negaraan" },
+              { "label": "Negara", "value": "negara" },
+              { "label": "Provinsi", "value": "provinsi" },
+              { "label": "Kabupaten", "value": "kabupaten" },
+              { "label": "Kecamatan", "value": "kecamatan" },
+              { "label": "Desa", "value": "desa" },
+              { "label": "Dusun", "value": "dusun" },
+              { "label": "Rw", "value": "rw" },
+              { "label": "Rt", "value": "rt" }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "orangtua",
+        "title": "Orangtua",
+        "type": "auto",
+        "parameter": {
+          "table": "orangtua",
+          "color": "orange"
+        },
+        "msg": "data akan otomatis terisi dengan data yang di pilih",
+
+        "components": [
+          {
+            "title": "Orangtua",
+            "name": "orangtua",
+            "primary": true,
+            "label": "orangtua",
+            "attr": "fildQuery",
+            "dataset": [
+              { "label": "Nomor KK", "value": "no_kk" },
+              { "label": "Nik Ayah", "value": "nik_ayah" },
+              { "label": "Nama Ayah", "value": "nama_ayah" },
+              { "label": "Nik Ibu", "value": "nik_ibu" },
+              { "label": "Nama Ibu", "value": "nama_ibu" }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "perangkat",
+        "title": "Perangkat",
+        "type": "auto",
+        "parameter": {
+          "table": "perangkat",
+          "color": "pink"
+        },
+        "msg": "data akan otomatis terisi dengan data yang di pilih",
+        "components": [
+          {
+            "title": "Perangkat",
+            "name": "perangkat",
+            "label": "Perangkat",
+            "attr": "fildQuery",
+            "primary": true,
+            "dataset": [
+              { "label": "Nik", "value": "nik" },
+              { "label": "Kode Desa", "value": "kode_desa" },
+              { "label": "Nomor KK", "value": "no_kk" },
+              { "label": "Nama Lengkap", "value": "nama_lengkap" },
+              { "label": "Jenis Kelamin", "value": "jenis_klamin" },
+              { "label": "Status Perkawinan", "value": "status_perkawinan" },
+              { "label": "Tempat Lahir", "value": "sungai langsat" },
+              { "label": "Tanggal Lahir", "value": "tanggal_lahir" },
+              { "label": "Agama", "value": "agama" },
+              { "label": "Golongan Darah", "value": "gol_darah" },
+              { "label": "Pendidikan", "value": "pendidikan_terakhir" }
+            ]
+          },
+          {
+            "title": "Jabatan",
+            "name": "jabatan",
+            "attr": "jabatan",
+            "primary": false,
+            "dataset": [
+              { "label": "Kepala Desa", "value": "KEPALA DESA" },
+              { "label": "Sektretaris Desa", "value": "SEKRETARIS DESA" },
+              { "label": "Perangkat Desa", "value": "Perangkat Desa" }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "signature",
+        "title": "Tanda Tangan",
+        "type": "auto",
+        "parameter": {
+          "table": "perangkat",
+          "color": "orange"
+        },
+        "msg": "data akan otomatis terisi dengan data yang di pilih",
+        "components": [
+          {
+            "title": "Signature",
+            "name": "signature",
+            "label": "Perangkat",
+            "attr": "fildQuery",
+            "primary": true,
+            "dataset": [
+              { "label": "Kepala Desa", "value": "KEPALA DESA" },
+              { "label": "Sektretaris Desa", "value": "SEKRETARIS DESA" }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "component_autometic",
+        "title": "Komponen Otomatis",
+        "type": "auto",
+        "parameter": {
+          "table": "null",
+          "color": "blue"
+        },
+        "msg": "akan generate komponen otomatis",
+        "components": [
+          {
+            "title": "Komponen",
+            "name": "component",
+            "label": "Komponen",
+            "attr": "fildQuery",
+            "primary": true,
+            "dataset": [
+              { "label": "dd mm yyyy", "value": "create-now-date" },
+              { "label": "dd mm yyyy HH:SS", "value": "create-now-date-time" },
+              { "label": "Day, dd mm yyyy ", "value": "create-now-date-day" },
+              {
+                "label": "Day, dd mm yyyy HH:SS",
+                "value": "create-now-date-hour-day"
+              },
+              { "label": "Jam", "value": "create-hour" }
+            ]
+          }
+        ]
+      }
+    ],
+    "ManualAttributeType": [
+      { "label": "text", "value": "text" },
+      { "label": "text-area", "value": "text-area" },
+      { "label": "Tanggal", "value": "date" }
+    ],
+    "AppendStaticHtml": [
+      {
+        "id": "_kop",
+        "name": "Kop",
+        "label": "Kop Surat",
+        "urlHtml": "http://localhost/pr-phoenix/assets/wizardEngine/config/lib/static/Html/Kop.html",
+        "data-query": "kop_surat",
+        "kode": "kopSurat"
+      },
+      {
+        "id": "_noSurat",
+        "name": "noSurat",
+        "label": "Nomor Surat",
+        "urlHtml": "http://localhost/pr-phoenix/assets/wizardEngine/config/lib/static/Html/noSurat.html",
+        "data-query": "kop_surat",
+        "kode": "kopSurat"
+      }
+    ]
+  },
+  "Layout": {
+    "name": "printConfig",
+    "title": "Konfigurasi Print",
+    "props": [
+      {
+        "type": "select",
+        "label": "papper",
+        "name": "papper",
+        "defaultValue": "A4",
+        "select": [
+          { "label": "A4", "value": "A4", "width": "210", "height": "297" },
+          { "label": "A5", "value": "A5", "width": "148.5", "height": "210" }
+        ]
+      },
+      {
+        "type": "text-group-select",
+        "label": "Margin Top",
+        "name": ["marginTop", "satuanTop"],
+        "defaultValue": "2",
+        "selectedSatuan": "cm",
+        "select": [
+          { "label": "Cm", "value": "cm" },
+          { "label": "mm", "value": "mm" },
+          { "label": "Inci", "value": "inci" }
+        ]
+      },
+      {
+        "type": "text-group-select",
+        "label": "Margin Right",
+        "name": ["marginRight", "satuanRight"],
+        "defaultValue": "2",
+        "selectedSatuan": "cm",
+        "select": [
+          { "label": "Cm", "value": "cm" },
+          { "label": "mm", "value": "mm" },
+          { "label": "Inci", "value": "inci" }
+        ]
+      },
+      {
+        "type": "text-group-select",
+        "label": "Margin Left",
+        "name": ["marginLeft", "satuanLeft"],
+        "defaultValue": "2",
+        "selectedSatuan": "cm",
+        "select": [
+          { "label": "Cm", "value": "cm" },
+          { "label": "mm", "value": "mm" },
+          { "label": "Inci", "value": "inci" }
+        ]
+      },
+      {
+        "type": "text-group-select",
+        "label": "Margin Bottom",
+        "name": ["marginBottom", "satuanBottom"],
+        "defaultValue": "2",
+        "selectedSatuan": "cm",
+        "select": [
+          { "label": "Cm", "value": "cm" },
+          { "label": "mm", "value": "mm" },
+          { "label": "Inci", "value": "inci" }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Orientation",
+        "name": "orientation",
+        "defaultValue": "portrait",
+        "select": [
+          { "label": "Portrait", "value": "portrait" },
+          { "label": "Landscape", "value": "landscape" }
+        ]
+      }
+    ]
+  },
+  "AppendInputExport": {
+    "card": {
+      "title": "Buat Template",
+      "style": {
+        "width": "500px",
+        "padding": "10px"
+      }
+    },
+    "attribute": [
+      {
+        "input": "input",
+        "child": [],
+        "label": "Judil Surat",
+        "type": "input",
+        "msg": {
+          "class": "",
+          "text": ""
+        },
+        "attr": {
+          "name": "judul_surat",
+          "class": "input-set-style w-100 mt-2 mb-2",
+          "id": "judul_surat",
+          "placeholder": "masukkan judul surat"
+        }
+      },
+      {
+        "input": "input",
+        "child": [],
+        "label": "Kode Desa",
+        "type": "input",
+        "msg": {
+          "class": "msg-warning",
+          "text": "jika kode surat dikosongkan maka surat kan bersifat public",
+          "Style": {
+            "padding": "2px",
+            "fontSize": ".6em"
+          }
+        },
+        "attr": {
+          "name": "kode_desa",
+          "class": "input-set-style w-100 mt-2 mb-2",
+          "id": "kode_desa",
+          "placeholder": "kode desa"
+        }
+      },
+      {
+        "input": "input",
+        "child": [],
+        "label": "Kode Surat",
+        "type": "input",
+        "msg": {
+          "class": "",
+          "text": ""
+        },
+        "attr": {
+          "name": "kode_surat",
+          "class": "input-set-style w-100 mt-2 mb-2",
+          "id": "kode_surat",
+          "placeholder": "kode desa"
+        }
+      },
+      {
+        "input": "text-area",
+        "child": [],
+        "label": "Description",
+        "type": "text-area",
+        "msg": {
+          "class": "",
+          "text": ""
+        },
+        "attr": {
+          "name": "description",
+          "class": "input-set-style w-100 mt-2 mb-2",
+          "id": "description",
+          "placeholder": "deskripsi surat"
+        }
+      }
+    ]
+  }
+}

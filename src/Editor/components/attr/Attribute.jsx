@@ -3,7 +3,7 @@ import Select from "react-select";
 
 import AutoValue from "./AutoValue";
 import ManualValue from "./ManualValue";
-const Config = require("../../../System/config/attribute.json");
+import Config from "../../../System/config/attribute.json";
 
 export default function Attr(props) {
   return (
