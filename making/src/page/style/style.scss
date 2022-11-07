@@ -1,0 +1,421 @@
+#printing-root {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    #printing {
+        background: rgb(204, 204, 204);
+        padding-bottom: 30px;
+        height: 100%;
+        overflow: auto;
+        width: 75%;
+        padding-top: 50px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        div.page {
+            background: white;
+            display: block;
+            // margin: 0 auto;
+            margin-bottom: 0.5cm;
+            box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+        }
+
+
+        div.page[data-size="A3"] {
+            width: 29.7cm;
+            min-height: 42cm;
+        }
+
+        div.page[data-size="A3"][data-layout="landscape"] {
+            width: 42cm;
+            min-height: 29.7cm;
+        }
+
+        div.page[data-size="A4"] {
+            width: 21cm;
+            min-height: 29.7cm;
+        }
+
+        div.page[data-size="A4"][data-layout="landscape"] {
+            width: 29.7cm;
+            min-height: 21cm;
+        }
+
+        div.page[data-size="A5"] {
+            width: 14.8cm;
+            min-height: 21cm;
+        }
+
+        div.page[data-size="A5"][data-layout="landscape"] {
+            width: 21cm;
+            min-height: 14.8cm;
+        }
+
+        div.page[data-size="A6"] {
+            width: 10.5cm;
+            min-height: 14.8cm;
+        }
+
+        div.page[data-size="A6"][data-layout="landscape"] {
+            width: 14.8cm;
+            min-height: 10.5cm;
+        }
+
+        div.page[data-size="A7"] {
+            width: 7.4cm;
+            min-height: 10.5cm;
+        }
+
+        div.page[data-size="A7"][data-layout="landscape"] {
+            width: 10.5cm;
+            min-height: 7.4cm;
+        }
+
+
+
+
+        .icon_pulse {
+            animation: circle .5s steps(8) infinite;
+        }
+
+        @keyframes circle {
+            from {
+                transform: rotate(90deg);
+            }
+
+            to {
+                transform: rotate(450deg);
+            }
+        }
+
+        .top-menu-printing {
+            display: flex;
+            padding: 10px;
+            justify-content: space-between;
+            width: 100%;
+
+            .btn-back-printing {
+                background: #fff;
+                border: 1px solid #ccc;
+                padding: 10px;
+                border-radius: 100%;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+
+                &:hover {
+                    box-shadow: 0 0 0.2cm rgba(0, 0, 0, 0.5);
+                }
+
+                &:active {
+                    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+                }
+            }
+
+            .btn-printing {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #fff;
+                border: 1px solid #ccc;
+                padding: 10px;
+                border-radius: 100%;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+
+                &:hover {
+                    box-shadow: 0 0 0.2cm rgba(0, 0, 0, 0.5);
+                }
+
+                &:active {
+                    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+                }
+            }
+        }
+
+        .pages-printing-preview {
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            overflow: auto;
+            display: flex;
+        }
+    }
+
+    #right-model {
+        background: #111;
+        padding-bottom: 30px;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        width: 25%;
+        right: 0;
+    }
+
+}
+
+$size : 10px;
+$bg : #cfd8dc;
+$activeBg : #000;
+
+.switch {
+    appearance: none;
+    width: calc($size * 2.2);
+    height: $size;
+    display: inline-block;
+    border-radius: calc($size / 2);
+    cursor: pointer;
+    background-color: $bg;
+    background-image: radial-gradient(circle calc($size / 2.1),
+            #fff 100%,
+            #0000 0),
+        radial-gradient(circle calc($size / 1.5), #0003 0%, #0000 100%);
+    background-repeat: no-repeat;
+    background-position: calc($size / (-1.75)) 0;
+    transition: background 0.2s ease-out;
+}
+
+.switch:checked {
+    background-color: $activeBg;
+    background-position: calc($size / 1.75) 0;
+}
+
+
+// ///////////////////////////////////////@at-root
+
+#printing-root {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    height: 100%;
+
+    #main-content {
+        width: calc(100% - 350px);
+        height: 100%;
+        overflow: auto;
+        position: relative;
+        background-color: gray;
+
+        .top-bar {
+            width: 100%;
+            padding-right: 350px;
+            background-color: #fff;
+            position: fixed;
+            height: 70px;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            .top-menu-printing {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                padding-left: 10px;
+                padding-right: 20px;
+
+                .btn-back-printing {
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    border-radius: 100%;
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+
+                    &:hover {
+                        box-shadow: 0 0 0.2cm rgba(0, 0, 0, 0.5);
+                    }
+
+                    &:active {
+                        box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+                    }
+                }
+
+                .btn-printing {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    border-radius: 20px;
+                    // width: 40px;
+                    height: 40px;
+                    padding-left: 20px;
+                    padding-right: 30px;
+                    cursor: pointer;
+
+                    &:hover {
+                        box-shadow: 0 0 0.2cm rgba(0, 0, 0, 0.5);
+                    }
+
+                    &:active {
+                        box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+        }
+
+
+        div.page {
+            display: table;
+            margin: 0 auto;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+        }
+
+
+        div.page[data-size="A3"] {
+            background: white;
+            width: 29.7cm;
+            min-height: 42cm;
+            height: auto;
+        }
+
+        div.page[data-size="A3"][data-layout="landscape"] {
+            background: white;
+            width: 42cm;
+            min-height: 29.7cm;
+            height: auto;
+        }
+
+        div.page[data-size="A4"] {
+            background: white;
+            width: 21cm;
+            min-height: 29.7cm;
+            height: auto;
+        }
+
+        div.page[data-size="A4"][data-layout="landscape"] {
+            background: white;
+            width: 29.7cm;
+            min-height: 21cm;
+            height: auto;
+        }
+
+        div.page[data-size="A5"] {
+            background: white;
+            width: 14.8cm;
+            min-height: 21cm;
+            height: auto;
+        }
+
+        div.page[data-size="A5"][data-layout="landscape"] {
+            background: white;
+            width: 21cm;
+            min-height: 14.8cm;
+            height: auto;
+        }
+
+        div.page[data-size="A6"] {
+            background: white;
+            width: 10.5cm;
+            min-height: 14.8cm;
+            height: auto;
+        }
+
+        div.page[data-size="A6"][data-layout="landscape"] {
+            background: white;
+            width: 14.8cm;
+            min-height: 10.5cm;
+            height: auto;
+        }
+
+        div.page[data-size="A7"] {
+            background: white;
+            width: 7.4cm;
+            min-height: 10.5cm;
+            height: auto;
+        }
+
+        div.page[data-size="A7"][data-layout="landscape"] {
+            background: white;
+            width: 10.5cm;
+            min-height: 7.4cm;
+            height: auto;
+        }
+    }
+
+    #aside {
+        width: 350px;
+        background-color: #fff;
+        height: 100%;
+        z-index: 99999;
+        position: relative;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .content-aside {
+            width: 100%;
+
+            .content-aside-card {
+                margin-top: 15px;
+
+
+            }
+        }
+    }
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .input-text {
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: hsl(0, 0%, 100%);
+        border-color: hsl(0, 0%, 80%);
+        border-radius: 4px;
+        border-style: solid;
+        border-width: 1px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        min-height: 38px;
+        outline: 0 !important;
+        position: relative;
+        -webkit-transition: all 100ms;
+        transition: all 100ms;
+        box-sizing: border-box;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &:focus {
+            background-color: hsl(0, 0%, 100%);
+            border: 2px solid #3498db;
+        }
+    }
+}

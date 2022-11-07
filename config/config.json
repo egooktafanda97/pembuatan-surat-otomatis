@@ -54,6 +54,7 @@
           }
         ]
       },
+
       {
         "name": "orangtua",
         "title": "Orangtua",
@@ -151,6 +152,33 @@
                 "value": "SEKRETARIS DESA",
                 "defaultUrlImg": ""
               }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Data Desa",
+        "name": "desa",
+        "type": "auto",
+        "data_structure": ["desa"],
+        "parameter": {
+          "table": "desa",
+          "color": "#076782"
+        },
+        "msg": "data akan otomatis terisi dengan data yang di pilih",
+        "components": [
+          {
+            "title": "Desa",
+            "name": "desa",
+            "primary": true,
+            "label": "Data Desa",
+            "attr": "fildQuery",
+            "dataset": [
+              { "label": "Negara", "value": "negara" },
+              { "label": "Provinsi", "value": "nama_provinsi" },
+              { "label": "Kabupaten", "value": "nama_kabupaten" },
+              { "label": "Kecamatan", "value": "nama_kecamatan" },
+              { "label": "Desa", "value": "nama_desa" }
             ]
           }
         ]
