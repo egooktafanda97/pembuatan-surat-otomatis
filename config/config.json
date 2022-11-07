@@ -3,8 +3,8 @@
     "base_url": "http://prphoenix.gigades.id/"
   },
   "ActionUrl": {
-    "request_url": "http://v3.gigades.id/rest/api/wizard/getPapperRequest",
-    "save_result_url": "http://v3.gigades.id/rest/api/wizard/build",
+    "request_url": "https://v3.gigades.id/rest/api/wizard/getPapperRequest",
+    "save_result_url": "https://v3.gigades.id/rest/api/wizard/build",
     "library_url": "http://prphoenix.gigades.id/library/"
   },
   "Editor": {
