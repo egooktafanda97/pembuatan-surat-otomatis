@@ -1,10 +1,11 @@
 {
   "Api": {
-    "base_url": "http://localhost/pr-phoenix/"
+    "base_url": "https://prphoenix.gigades.id/"
   },
   "ActionUrl": {
     "request_url": "https://v3.gigades.id/rest/api/wizard/getPapperRequest",
-    "save_result_url": "https://v3.gigades.id/rest/api/wizard/build"
+    "save_result_url": "https://v3.gigades.id/rest/api/wizard/build",
+    "library_url": "https://prphoenix.gigades.id/library/"
   },
   "Editor": {
     "width": "210mm",
@@ -223,7 +224,7 @@
         "id": "_kop",
         "name": "Kop",
         "label": "Kop Surat",
-        "urlHtml": "http://localhost/pr-phoenix/assets/wizardEngine/config/lib/static/Html/Kop.html",
+        "urlHtml": "config/lib/static/Html/Kop.html",
         "data-query": "kop_surat",
         "kode": "kopSurat"
       },
@@ -231,7 +232,7 @@
         "id": "_noSurat",
         "name": "noSurat",
         "label": "Nomor Surat",
-        "urlHtml": "http://localhost/pr-phoenix/assets/wizardEngine/config/lib/static/Html/noSurat.html",
+        "urlHtml": "config/lib/static/Html/noSurat.html",
         "data-query": "kop_surat",
         "kode": "kopSurat"
       }
