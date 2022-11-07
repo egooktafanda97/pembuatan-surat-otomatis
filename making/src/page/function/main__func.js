@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import moment from 'moment';
+moment.locale('id');
 
 const configure = require('../../System/config/config.json');
 function isEmpty(obj) {
@@ -345,8 +346,20 @@ export const buildAutoComponent = (code, response) => {
       ) {
         var value = ``;
         switch ($($(autoGet[i])).attr('fildquery')) {
+          case 'create-now-date':
+            value = moment().format('DD MMMM YYYY');
+            break;
+          case 'create-now-date-time':
+            value = moment().format('Do MMMM YYYY, h:mm:ss');
+            break;
           case 'create-now-date-day':
             value = moment().format('dddd, DD MMMM YYYY');
+            break;
+          case 'create-now-date-hour-day':
+            value = moment().format('dddd,Do MMMM YYYY, h:mm:ss');
+            break;
+          case 'create-hour':
+            value = moment().format('h:mm:ss a');
             break;
 
           default:

@@ -1,7 +1,7 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import $ from "jquery";
-import moment from "moment";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import $ from 'jquery';
+import moment from 'moment';
 // import moment from "moment/min/moment-with-locales";
 // import "moment/dist/locale/id";
 import {
@@ -13,15 +13,15 @@ import {
   buildSignature,
   buildAutoComponent,
   buildAutoDataOrangtua,
-} from "./___func";
+} from '../../../making/src/page/function/main__func.js';
 // redux
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-const configure = require("../System/config/config.json");
+const configure = require('../System/config/config.json');
 
 export default function Content(props) {
-  moment.locale("id");
+  moment.locale('id');
   const [data, setData] = useState(null);
   const [penduduk, setpenduduk] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -55,7 +55,7 @@ export default function Content(props) {
       });
 
       codeBuilding = buildSignature(codeBuilding, props.perangkat, (resuts) => {
-        localStorage.setItem("signiture", JSON.stringify(resuts));
+        localStorage.setItem('signiture', JSON.stringify(resuts));
       });
 
       codeBuilding = buildAutoComponent(codeBuilding, (res) => {
@@ -80,33 +80,33 @@ export default function Content(props) {
   // trasformasi manual ------------------------------
   useEffect(() => {
     if ($) {
-      $("#printing").on("change", function (e) {
+      $('#printing').on('change', function (e) {
         trasformationInputToOutput(
-          $(e.target).attr("name"),
+          $(e.target).attr('name'),
           $(e.target).val(),
           {
-            id: $(e.target).attr("id"),
-            type: $(e.target).attr("type"),
+            id: $(e.target).attr('id'),
+            type: $(e.target).attr('type'),
           }
         );
       });
-      $("#printing").on("click", function (e) {
+      $('#printing').on('click', function (e) {
         trasformationOutputChangeToInput(
-          $(e.target).attr("name"),
+          $(e.target).attr('name'),
           $(e.target).text(),
           {
-            id: $(e.target).attr("id"),
-            type: $(e.target).attr("type"),
+            id: $(e.target).attr('id'),
+            type: $(e.target).attr('type'),
           }
         );
       });
-      $(document).on("click", "[name='signature-swiching']", function (e) {
+      $(document).on('click', "[name='signature-swiching']", function (e) {
         if (!e.target.checked) {
           $(
             `img[type='img-auto'][name='img-signature'][fildquery='${$(
               e.target
-            ).attr("data-id")}']`
-          ).css("opacity", "0");
+            ).attr('data-id')}']`
+          ).css('opacity', '0');
           // const SigObj = JSON.parse(localStorage.getItem("signiture"));
           // console.log(
           //   SigObj.find((item) => item.id_perangkat == $(e.target).attr("id"))
@@ -115,15 +115,15 @@ export default function Content(props) {
           $(
             `img[type='img-auto'][name='img-signature'][fildquery='${$(
               e.target
-            ).attr("data-id")}']`
-          ).css("opacity", "1");
+            ).attr('data-id')}']`
+          ).css('opacity', '1');
         }
       });
     }
   }, [$]);
   useEffect(() => {
     dispatch({
-      type: "SET_INPUT_NAME",
+      type: 'SET_INPUT_NAME',
       payload: inputName,
     });
   }, [inputName]);
