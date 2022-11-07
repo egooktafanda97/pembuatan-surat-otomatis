@@ -224,7 +224,7 @@
         "id": "_kop",
         "name": "Kop",
         "label": "Kop Surat",
-        "urlHtml": "https://prphoenix.gigades.id/library/config/lib/static/Html/Kop.html",
+        "urlHtml": "https://prphoenix.gigades.id/library/config/static/Html/Kop.html",
         "data-query": "kop_surat",
         "kode": "kopSurat"
       },
@@ -232,7 +232,7 @@
         "id": "_noSurat",
         "name": "noSurat",
         "label": "Nomor Surat",
-        "urlHtml": "https://prphoenix.gigades.id/library/config/lib/static/Html/noSurat.html",
+        "urlHtml": "https://prphoenix.gigades.id/library/config/static/Html/noSurat.html",
         "data-query": "kop_surat",
         "kode": "kopSurat"
       }
