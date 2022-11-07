@@ -11,17 +11,17 @@
     "height": "100%"
   },
   "AttributeMenu": {
-    "Attribute": [
+    "AutomaticAttributeType": [
       {
-        "name": "penduduk",
         "title": "Penduduk",
+        "name": "penduduk",
         "type": "auto",
+        "data_structure": ["penduduk"],
         "parameter": {
           "table": "penduduk",
           "color": "green"
         },
         "msg": "data akan otomatis terisi dengan data yang di pilih",
-
         "components": [
           {
             "title": "Penduduk",
@@ -58,12 +58,12 @@
         "name": "orangtua",
         "title": "Orangtua",
         "type": "auto",
+        "data_structure": ["penduduk", "orangtua"],
         "parameter": {
           "table": "orangtua",
           "color": "orange"
         },
         "msg": "data akan otomatis terisi dengan data yang di pilih",
-
         "components": [
           {
             "title": "Orangtua",
@@ -141,8 +141,16 @@
             "attr": "fildQuery",
             "primary": true,
             "dataset": [
-              { "label": "Kepala Desa", "value": "KEPALA DESA" },
-              { "label": "Sektretaris Desa", "value": "SEKRETARIS DESA" }
+              {
+                "label": "Kepala Desa",
+                "value": "KEPALA DESA",
+                "defaultUrlImg": ""
+              },
+              {
+                "label": "Sektretaris Desa",
+                "value": "SEKRETARIS DESA",
+                "defaultUrlImg": ""
+              }
             ]
           }
         ]
@@ -182,7 +190,7 @@
       { "label": "text-area", "value": "text-area" },
       { "label": "Tanggal", "value": "date" }
     ],
-    "AppendStaticHtml": [
+    "AppendStaticHtmlattributeType": [
       {
         "id": "_kop",
         "name": "Kop",

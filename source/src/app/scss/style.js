@@ -1,0 +1,9 @@
+export const style = {
+  containers: {
+    width: "100%",
+    height: "100%",
+    overflow: "auto",
+    margin: "0",
+    padding: "0",
+  },
+};
