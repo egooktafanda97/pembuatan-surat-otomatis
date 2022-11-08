@@ -29,7 +29,7 @@ const getPendudukByDesa = async (respose) => {
 };
 const getDataPerangkat = async (respose) => {
   const gets = await axios
-    .get(`${url_api_server}wizard/getDataInstansi`, {
+    .get(`${url_api_server}perangkat/getPerangkatDesa`, {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.getItem('_token'),
       },
