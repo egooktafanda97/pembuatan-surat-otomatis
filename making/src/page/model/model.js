@@ -55,7 +55,6 @@ async function api_post(url, data, response) {
 }
 
 const getDataDesa = async (respose) => {
-  console.log('Bearer ' + sessionStorage.getItem('_token'));
   api_get(
     `${url_api_server}wizard/getDataDesa`,
     {
