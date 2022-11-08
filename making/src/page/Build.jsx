@@ -42,6 +42,7 @@ export default function Build(props) {
         `<div>${props?.code ?? '<></>'}</div>`,
         props.penduduk
       );
+      console.log(props.perangkat);
       codeBuilding = buildAutoDataOrangtua(
         codeBuilding,
         props.penduduk.orangtua
