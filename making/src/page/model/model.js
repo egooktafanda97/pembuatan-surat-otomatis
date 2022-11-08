@@ -16,11 +16,11 @@ const getpapper = async (cari, respose) => {
     });
   respose(getSurat);
 };
-const getSearchPenduduk = async (searching, respose) => {
+const getSearchPenduduk = (searching, respose) => {
   api_get(`${url_api_server}wizard/getPenduduk/${searching}`, respose);
 };
 
-const getPenduduk = async (respose) => {
+const getPenduduk = (respose) => {
   api_get(`${url_api_server}wizard/getPenduduk`, respose);
 };
 
@@ -28,15 +28,25 @@ const getPendudukByDesa = async (respose) => {
   respose(penduduk);
 };
 const getDataPerangkat = async (respose) => {
-  // api_get(`${url_api_server}wizard/getDataInstansi`, respose);
-  respose(perangkat);
+  const gets = await axios
+    .get(`${url_api_server}wizard/getDataInstansi`, {
+      headers: {
+        Authorization: 'Bearer ' + sessionStorage.getItem('_token'),
+      },
+    })
+    .catch((err) => {
+      response(err.respose);
+    });
+  if (gets) {
+    response(gets);
+  }
 };
 
-const getKopSurat = async (respose) => {
+const getKopSurat = (respose) => {
   api_get(`${url_api_server}kop/getKopByAuth`, respose);
 };
 
-const postWizard = async (data, respose) => {
+const postWizard = (data, respose) => {
   api_post(`${url_api_server}surat/create`, data, respose);
 };
 
@@ -70,9 +80,15 @@ const getDataDesa = async (respose) => {
 };
 
 async function api_get(url, response) {
-  const gets = await axios.get(url).catch((err) => {
-    response(err.respose);
-  });
+  const gets = await axios
+    .get(url, {
+      headers: {
+        Authorization: 'Bearer ' + sessionStorage.getItem('_token'),
+      },
+    })
+    .catch((err) => {
+      response(err.respose);
+    });
   if (gets.status != undefined) {
     response(gets);
   }
