@@ -55,19 +55,21 @@ async function api_post(url, data, response) {
 }
 
 const getDataDesa = async (respose) => {
-  api_get(`${url_api_server}wizard/getDataDesa`, respose);
-};
-
-async function api_get(url, response) {
-  const gets = await axios
-    .get(url, {
+  api_get(
+    `${url_api_server}wizard/getDataDesa`,
+    {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.getItem('_token'),
       },
-    })
-    .catch((err) => {
-      response(err.respose);
-    });
+    },
+    respose
+  );
+};
+
+async function api_get(url, response) {
+  const gets = await axios.get(url).catch((err) => {
+    response(err.respose);
+  });
   if (gets.status != undefined) {
     response(gets);
   }
