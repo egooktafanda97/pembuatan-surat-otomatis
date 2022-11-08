@@ -28,12 +28,9 @@ export function exports_data(props, result) {
     var refreshIntervalId = setInterval(() => {
       swal('Success', 'Export Success', 'success').then((ev) => {
         if (ev) {
-          // editor.setData('');
-          // localStorage.clear();
-          // sessionStorage.clear();
-          // result(res);
-          // sessionStorage.removeItem('dataEdit');
-          // sessionStorage.setItem('phase', 'created');
+          sessionStorage.setItem('dataUpdate', JSON.stringify(res));
+          sessionStorage.setItem('phase', 'edit');
+          window.location.reload();
         }
       });
       $('.containerLoadingFull').addClass('hide-load').removeClass('show-load');
