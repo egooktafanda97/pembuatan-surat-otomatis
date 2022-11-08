@@ -27,7 +27,7 @@ const getPenduduk = (respose) => {
 const getPendudukByDesa = async (respose) => {
   respose(penduduk);
 };
-const getDataPerangkat = async (respose) => {
+const getDataPerangkat = async (response) => {
   const gets = await axios
     .get(`${url_api_server}perangkat/getPerangkatDesa`, {
       headers: {
