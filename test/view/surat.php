@@ -41,28 +41,65 @@
                 window.location.href = "editor.php"
             }
         }
+        async function readData() {
+                const getter = await axios.get("https://v3.gigades.id/rest/api/wizard/getPapper", {
+                    headers: {
+                        Authorization: 'Bearer ' + sessionStorage.getItem('_token'),
+                    },
+                });
+                if (getter.status == 200) {
+                    const data = getter.data;
 
-        (async function() {
-            const getter = await axios.get("https://v3.gigades.id/rest/api/wizard/getPapper");
-            if (getter.status == 200) {
-                const data = getter.data;
+                    sessionStorage.setItem("main-data", JSON.stringify(data));
 
-                sessionStorage.setItem("main-data", JSON.stringify(data));
-
-                var html = ``;
-                data.map((_, i) => {
-                    html += `<tr>
+                    var html = ``;
+                    data.map((_, i) => {
+                        html += `<tr>
                             <th scope="row">${i}</th>
                             <td>${_.kode_surat}</td>
                             <td>${_.name}</td>
                             <td>
+                                <button class="btn btn-primary btn-sm" onclick="runEdit('${_.id_wizard_template}')">Edit</button>
                                 <button class="btn btn-primary btn-sm" onclick="run('${_.id_wizard_template}')">buat</button>
                             </td>
                         </tr>`;
-                });
-                $("#data").html(html)
+                    });
+                    $("#data").html(html)
+                }
             }
-        })()
+            (async function() {
+
+                async function login() {
+                    const form_data = new FormData();
+                    form_data.append("username", "phoenix")
+                    form_data.append("password", "password")
+                    const getter = await axios.post("https://v3.gigades.id/rest/api/auth/login", form_data).catch((error) => {
+                        console.log(error)
+                    });
+                    if (getter) {
+                        sessionStorage.setItem("_token", getter?.data?.access_token);
+                        if (sessionStorage.getItem("_token")) {
+                            readData();
+                        }
+                    }
+                }
+                login();
+            })();
+
+        function runEdit(r) {
+            const dataMain = JSON.parse(sessionStorage.getItem('main-data'));
+            sessionStorage.clear();
+            localStorage.clear();
+            sessionStorage.setItem(
+                'dataUpdate',
+                JSON.stringify(dataMain.find((x) => x.id_wizard_template === r))
+            );
+
+            if (sessionStorage.getItem('dataUpdate') != undefined) {
+                sessionStorage.removeItem('main-data');
+                window.location.href = '../wizard/index.html';
+            }
+        }
     </script>
 
 </body>
