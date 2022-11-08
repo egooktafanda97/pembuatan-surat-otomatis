@@ -304,7 +304,8 @@ export default function Surat(props) {
   };
   const getDesa = () => {
     getDataDesa((result) => {
-      setData_desa(result?.data ?? {});
+      console.log('1', result);
+      setData_desa(result ?? {});
     });
   };
 

@@ -28,7 +28,7 @@ const getPendudukByDesa = async (respose) => {
   respose(penduduk);
 };
 const getDataPerangkat = async (response) => {
-  const gets = await axios
+  const _gets = await axios
     .get(`${url_api_server}perangkat/getPerangkatDesa`, {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.getItem('_token'),
@@ -37,8 +37,8 @@ const getDataPerangkat = async (response) => {
     .catch((err) => {
       response(err.respose);
     });
-  if (gets) {
-    response(gets?.data);
+  if (_gets) {
+    response(_gets?.data);
   }
 };
 
@@ -65,7 +65,7 @@ async function api_post(url, data, response) {
 }
 
 const getDataDesa = async (response) => {
-  const gets = await axios
+  const __gets = await axios
     .get(`${url_api_server}wizard/getDataDesa`, {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.getItem('_token'),
@@ -74,13 +74,15 @@ const getDataDesa = async (response) => {
     .catch((err) => {
       response(err.respose);
     });
+  console.log('1', __gets);
   if (gets) {
-    response(gets?.data);
+    console.log('2', __gets);
+    response(__gets?.data);
   }
 };
 
 async function api_get(url, response) {
-  const gets = await axios
+  const ___gets = await axios
     .get(url, {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.getItem('_token'),
@@ -89,8 +91,8 @@ async function api_get(url, response) {
     .catch((err) => {
       response(err.respose);
     });
-  if (gets.status != undefined) {
-    response(gets);
+  if (___gets.status != undefined) {
+    response(___gets);
   }
 }
 
