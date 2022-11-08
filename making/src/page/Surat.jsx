@@ -286,7 +286,6 @@ export default function Surat(props) {
   };
   const getDataPerangkatDesa = () => {
     getDataPerangkat((result) => {
-      console.log('>3', result);
       setdataPerangkat(result?.response ?? []);
     });
   };

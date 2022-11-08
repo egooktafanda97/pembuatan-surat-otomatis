@@ -37,9 +37,7 @@ const getDataPerangkat = async (response) => {
     .catch((err) => {
       response(err.respose);
     });
-  console.log('>1', gets);
   if (gets) {
-    console.log('>2', gets);
     response(gets?.data);
   }
 };
@@ -66,7 +64,7 @@ async function api_post(url, data, response) {
   }
 }
 
-const getDataDesa = async (respose) => {
+const getDataDesa = async (response) => {
   const gets = await axios
     .get(`${url_api_server}wizard/getDataDesa`, {
       headers: {
@@ -77,7 +75,7 @@ const getDataDesa = async (respose) => {
       response(err.respose);
     });
   if (gets) {
-    response(gets);
+    response(gets?.data);
   }
 };
 
