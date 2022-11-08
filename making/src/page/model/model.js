@@ -40,7 +40,7 @@ const getDataPerangkat = async (response) => {
   console.log('>1', gets);
   if (gets) {
     console.log('>2', gets);
-    response(gets);
+    response(gets?.data);
   }
 };
 
