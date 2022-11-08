@@ -59,9 +59,15 @@ const getDataDesa = async (respose) => {
 };
 
 async function api_get(url, response) {
-  const gets = await axios.get(url).catch((err) => {
-    response(err.respose);
-  });
+  const gets = await axios
+    .get(url, {
+      headers: {
+        Authorization: 'Bearer ' + sessionStorage.getItem('_token'),
+      },
+    })
+    .catch((err) => {
+      response(err.respose);
+    });
   if (gets.status != undefined) {
     response(gets);
   }
