@@ -75,7 +75,7 @@ const getDataDesa = async (response) => {
       response(err.respose);
     });
   console.log('1', __gets);
-  if (gets) {
+  if (__gets) {
     console.log('2', __gets);
     response(__gets?.data);
   }
