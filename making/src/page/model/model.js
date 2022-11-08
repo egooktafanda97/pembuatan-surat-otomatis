@@ -38,6 +38,7 @@ const getDataPerangkat = async (response) => {
       response(err.respose);
     });
   if (gets) {
+    consolel.log('>>', gets);
     response(gets);
   }
 };
