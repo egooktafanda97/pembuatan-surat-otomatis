@@ -55,15 +55,18 @@ async function api_post(url, data, response) {
 }
 
 const getDataDesa = async (respose) => {
-  api_get(
-    `${url_api_server}wizard/getDataDesa`,
-    {
+  const gets = await axios
+    .get(`${url_api_server}wizard/getDataDesa`, {
       headers: {
         Authorization: 'Bearer ' + sessionStorage.getItem('_token'),
       },
-    },
-    respose
-  );
+    })
+    .catch((err) => {
+      response(err.respose);
+    });
+  if (gets) {
+    response(gets);
+  }
 };
 
 async function api_get(url, response) {
