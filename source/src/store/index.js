@@ -1,44 +1,43 @@
-import { PapperSet, LayoutSeting } from "./action";
-import { State } from "./initialState";
+import { PapperSet, LayoutSeting } from './action';
+import { State } from './initialState';
 function reducer(state = State, action) {
   switch (action.type) {
-    case "__INIT_CONFIG__":
-      localStorage.setItem("init", JSON.stringify(action.payload));
+    case '__INIT_CONFIG__':
+      localStorage.setItem('init', JSON.stringify(action.payload));
       return { ...state, __INIT_CONFIG__: action.payload };
       break;
-    case "PAPPER-SETTING":
-      localStorage.setItem(
-        "config",
-        JSON.stringify(
-          JSON.parse(localStorage.getItem("config")) != undefined
-            ? {
-                ...JSON.parse(localStorage.getItem("config")),
-                ...state,
-                papperSetting: PapperSet(action),
-              }
-            : {
-                ...state,
-                papperSetting: PapperSet(action),
-              }
-        )
-      );
+    case 'PAPPER-SETTING':
+      const configUpTodate =
+        JSON.parse(localStorage.getItem('config')) != undefined
+          ? {
+              ...JSON.parse(localStorage.getItem('config')),
+              ...state,
+              papperSetting: PapperSet(action),
+            }
+          : {
+              ...state,
+              papperSetting: PapperSet(action),
+            };
+
+      localStorage.setItem('config', JSON.stringify(configUpTodate));
       return {
         ...state,
         __INIT_CONFIG__: { ...state?.__INIT_CONFIG__, ...LayoutSeting(action) },
       };
-    case "MODAL-ACTION":
+      break;
+    case 'MODAL-ACTION':
       return { ...state, modalAttrAction: action.payload };
       break;
-    case "MODAL-ATTAC":
+    case 'MODAL-ATTAC':
       return { ...state, MODALATTAC: action.payload };
       break;
-    case "ACTION-VALUE":
+    case 'ACTION-VALUE':
       localStorage.setItem(
-        "config",
+        'config',
         JSON.stringify(
-          JSON.parse(localStorage.getItem("config")) != undefined
+          JSON.parse(localStorage.getItem('config')) != undefined
             ? {
-                ...JSON.parse(localStorage.getItem("config")),
+                ...JSON.parse(localStorage.getItem('config')),
                 ...state,
                 ACTIONVALUE: action.payload,
               }
@@ -50,13 +49,13 @@ function reducer(state = State, action) {
       );
       return { ...state, ACTIONVALUE: action.payload };
       break;
-    case "ATTACHMENT":
+    case 'ATTACHMENT':
       localStorage.setItem(
-        "config",
+        'config',
         JSON.stringify(
-          JSON.parse(localStorage.getItem("config")) != undefined
+          JSON.parse(localStorage.getItem('config')) != undefined
             ? {
-                ...JSON.parse(localStorage.getItem("config")),
+                ...JSON.parse(localStorage.getItem('config')),
                 ...state,
                 ATTACHMENT: action.payload,
               }
@@ -67,16 +66,19 @@ function reducer(state = State, action) {
         )
       );
       return { ...state, ATTACHMENT: action.payload };
-    case "PREVIEW":
+      break;
+    case 'REDUX_SETUP_EDIT_ACTION':
+      return { ...state, ...action.payload };
+    case 'PREVIEW':
       return { ...state, preview: action.payload };
       break;
-    case "SET_INPUT_NAME":
+    case 'SET_INPUT_NAME':
       return {
         ...state,
         dataPrinting: { ...state.dataPrinting, nameManulInput: action.payload },
       };
       break;
-    case "SET_VALUE_MANUAL_INPUT":
+    case 'SET_VALUE_MANUAL_INPUT':
       return {
         ...state,
         dataPrinting: {
@@ -85,33 +87,13 @@ function reducer(state = State, action) {
         },
       };
       break;
+    case 'SET_ATTRIBUTE_SAVE':
+      return { ...state, ATTRIBUTE_SAVE: action.payload };
+      break;
     default:
-      if (sessionStorage.getItem("dataEdit") != undefined) {
-        const editData = JSON.parse(
-          sessionStorage.getItem("dataEdit") ?? state
-        );
-        const States = {
-          papperSetting: JSON.parse(editData.config_print ?? "[]"),
-          config: JSON.parse(editData.config ?? "[]"),
-          dataPrinting: {
-            nameManulInput: [],
-            valueManualInput: {},
-          },
-          modalAttrAction: "show-mod",
-          MODALATTAC: "show-mod",
-          ACTIONVALUE: ``,
-          ATTACHMENT: JSON.parse(editData.attachment ?? "[]"),
-          preview: "hide-preview",
-        };
-        localStorage.setItem("config", JSON.stringify(States));
-        localStorage.setItem("_contens", editData.code);
-        return state;
-      } else if (localStorage.getItem("config") == undefined) {
-        localStorage.setItem("config", JSON.stringify(state));
-        return state;
-      } else {
-        return JSON.parse(localStorage.getItem("config"));
-      }
+      localStorage.setItem('config', JSON.stringify(state));
+      sessionStorage.setItem('phase', 'created');
+      break;
   }
 }
 

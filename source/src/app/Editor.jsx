@@ -46,6 +46,7 @@ export default function Editor({ someProp }) {
           break;
         case CKEditorEventAction.change:
           localStorage.setItem('_contens', action.payload.editor.getData());
+          sessionStorage.setItem('content_update', true);
           break;
         default:
           break;
@@ -114,23 +115,6 @@ export default function Editor({ someProp }) {
   }, []);
 
   useEffect(() => {
-    if (editor && loading == false) {
-      if (!_.isEmptyObj(DataUpdate)) {
-        // set input model save
-      } else {
-        if (phase != undefined && phase == 'edit') {
-          editor.setData('');
-          localStorage.clear();
-          sessionStorage.removeItem('dataEdit');
-          window.location.reload();
-          sessionStorage.setItem('phase', 'created');
-        } else {
-          sessionStorage.setItem('phase', 'created');
-        }
-      }
-    }
-  }, [editor]);
-  useEffect(() => {
     $('.sidebar-container').css(
       'height',
       `calc(100% - ${$('.top-bar-clases').height()}px)`
@@ -146,6 +130,7 @@ export default function Editor({ someProp }) {
   const hndelExports = (ev) => {
     ev.preventDefault();
     onCloseModal();
+
     $('.containerLoadingFull').addClass('show-load').removeClass('hide-load');
     if (attribute.length > 0) {
       exports_data({
@@ -167,7 +152,7 @@ export default function Editor({ someProp }) {
       if (willDelete) {
         editor.setData('');
         localStorage.clear();
-        sessionStorage.removeItem('dataEdit');
+        sessionStorage.removeItem('dataUpdate');
         sessionStorage.setItem('phase', 'created');
         window.location.reload();
       }
@@ -263,6 +248,7 @@ export default function Editor({ someProp }) {
               CardConfig={InitConfig?.AppendInputExport?.card ?? {}}
               style={InitConfig?.AppendInputExport?.card?.style}
               result={(res) => {
+                console.log(res);
                 setAttribute(res);
               }}
             />

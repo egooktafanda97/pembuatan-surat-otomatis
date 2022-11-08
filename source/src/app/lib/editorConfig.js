@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from 'react';
 import {
   useCKEditor,
   CKEditorEventAction,
   registerEditorEventHandler,
-} from "ckeditor4-react";
+} from 'ckeditor4-react';
 
 export function useEditor(elemetId, onChange) {
   return {
@@ -15,27 +15,27 @@ export function useEditor(elemetId, onChange) {
           break;
         case CKEditorEventAction.change:
           onChange(action.payload.editor.getData());
-
+          sessionStorage.setItem('content_update', true);
           break;
         default:
           break;
       }
     },
-    subscribeTo: ["focus", "change"],
+    subscribeTo: ['focus', 'change'],
     contenteditable: true,
     config: {
-      extraPlugins: "fixed",
-      extraPlugins: "sharedspace",
-      removePlugins: "maximize,resize",
+      extraPlugins: 'fixed',
+      extraPlugins: 'sharedspace',
+      removePlugins: 'maximize,resize',
       resize_enabled: false,
       tabSpaces: 4,
       allowedContent: true,
-      line_height: "1em;1.1em;1.2em;1.3em;1.4em;1.5em",
+      line_height: '1em;1.1em;1.2em;1.3em;1.4em;1.5em',
       sharedSpaces: {
-        top: "top",
-        bottom: "editors",
+        top: 'top',
+        bottom: 'editors',
       },
-      removeButtons: "PasteFromWord",
+      removeButtons: 'PasteFromWord',
     },
   };
 }
@@ -43,7 +43,7 @@ export function useEditor(elemetId, onChange) {
 export function register(editor) {
   return {
     editor,
-    evtName: "focus",
+    evtName: 'focus',
     handler: () => {
       console.log(
         `Will be called with current value of ${someProp} before regular event handlers.`

@@ -20,8 +20,6 @@ import {
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-const configure = require('../System/config/config.json');
-
 export default function Build(props) {
   moment.locale('id');
   const [data, setData] = useState(null);

@@ -246,6 +246,7 @@
         "type": "select",
         "label": "papper",
         "name": "papper",
+        "id": "paperSize",
         "defaultValue": "A4",
         "select": [
           { "label": "A4", "value": "A4", "width": "210", "height": "297" },
@@ -256,8 +257,10 @@
         "type": "text-group-select",
         "label": "Margin Top",
         "name": ["marginTop", "satuanTop"],
+        "id": "top",
         "defaultValue": "2",
         "selectedSatuan": "cm",
+        "idSelect": "select_top",
         "select": [
           { "label": "Cm", "value": "cm" },
           { "label": "mm", "value": "mm" },
@@ -268,8 +271,10 @@
         "type": "text-group-select",
         "label": "Margin Right",
         "name": ["marginRight", "satuanRight"],
+        "id": "right",
         "defaultValue": "2",
         "selectedSatuan": "cm",
+        "idSelect": "select_right",
         "select": [
           { "label": "Cm", "value": "cm" },
           { "label": "mm", "value": "mm" },
@@ -280,8 +285,10 @@
         "type": "text-group-select",
         "label": "Margin Left",
         "name": ["marginLeft", "satuanLeft"],
+        "id": "left",
         "defaultValue": "2",
         "selectedSatuan": "cm",
+        "idSelect": "select_left",
         "select": [
           { "label": "Cm", "value": "cm" },
           { "label": "mm", "value": "mm" },
@@ -292,8 +299,10 @@
         "type": "text-group-select",
         "label": "Margin Bottom",
         "name": ["marginBottom", "satuanBottom"],
+        "id": "bottom",
         "defaultValue": "2",
         "selectedSatuan": "cm",
+        "idSelect": "select_bottom",
         "select": [
           { "label": "Cm", "value": "cm" },
           { "label": "mm", "value": "mm" },
@@ -304,7 +313,9 @@
         "type": "select",
         "label": "Orientation",
         "name": "orientation",
+        "id": "paperOrientation",
         "defaultValue": "portrait",
+        "idSelect": "select_paperOrientation",
         "select": [
           { "label": "Portrait", "value": "portrait" },
           { "label": "Landscape", "value": "landscape" }

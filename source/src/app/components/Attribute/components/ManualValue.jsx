@@ -25,7 +25,7 @@ export default function ManualValue(props) {
     setId(makeid(5));
   };
   useEffect(() => {
-    if (InitAttribute?.Attribute ?? false) {
+    if (InitAttribute ?? false) {
       setManuslSelect(InitAttribute ?? []);
     }
   }, []);

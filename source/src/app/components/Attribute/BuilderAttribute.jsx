@@ -49,6 +49,7 @@ export default function BuilderAttribute(props) {
       InitAttribute?.AppendStaticHtmlattributeType ?? []
     );
     setManualAttributeType(InitAttribute.ManualAttributeType ?? []);
+    console.log(InitAttribute.ManualAttributeType);
   }, []);
 
   return (

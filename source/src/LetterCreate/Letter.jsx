@@ -24,10 +24,18 @@ export default function Letter(props) {
   const [configPrint, setConfigPrint] = useState(null);
   const componentRef = useRef();
   const Setterpadding = {
-    paddingTop: configPrint != undefined && configPrint.paperMargin.top,
-    paddingBottom: configPrint != undefined && configPrint.paperMargin.bottom,
-    paddingLeft: configPrint != undefined && configPrint.paperMargin.left,
-    paddingRight: configPrint != undefined && configPrint.paperMargin.right,
+    paddingTop:
+      configPrint != undefined &&
+      `${configPrint.paperMargin.top[0]}${configPrint.paperMargin.top[1]}`,
+    paddingBottom:
+      configPrint != undefined &&
+      `${configPrint.paperMargin.bottom[0]}${configPrint.paperMargin.bottom[1]}`,
+    paddingLeft:
+      configPrint != undefined &&
+      `${configPrint.paperMargin.left[0]}${configPrint.paperMargin.left[1]}`,
+    paddingRight:
+      configPrint != undefined &&
+      `${configPrint.paperMargin.right[0]}${configPrint.paperMargin.right[1]}`,
   };
   const [open, setOpen] = useState(false);
   const [openConfigs, setOpenConfigs] = useState(false);

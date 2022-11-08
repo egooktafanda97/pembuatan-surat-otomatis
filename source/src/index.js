@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import { createStore } from 'redux';
 
 // internal import =====================
@@ -14,9 +14,10 @@ const store = createStore(reducer);
 const Routers = () => {
   const [instance, setInstance] = useState({});
   const [load, setLoad] = useState(false);
+
   useEffect(() => {
     getMoviesFromApi();
-  }, []);
+  }, [window?.dataSet?.initJsonUrl]);
 
   async function getMoviesFromApi() {
     try {
