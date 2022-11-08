@@ -37,8 +37,9 @@ const getDataPerangkat = async (response) => {
     .catch((err) => {
       response(err.respose);
     });
-  consolel.log('>>', gets);
+  console.log('>1', gets);
   if (gets) {
+    console.log('>2', gets);
     response(gets);
   }
 };
