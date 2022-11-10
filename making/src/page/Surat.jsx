@@ -45,7 +45,6 @@ import {
 import { CheckKopSurat, CheckNoSurat } from './function/main__func';
 import Editor from './components/CkEditor';
 import PengaturanPrint from './components/PengaturanPrint';
-import Printing from './Printing';
 
 export default function Surat(props) {
   const [data, setData] = useState(null);
@@ -161,22 +160,7 @@ export default function Surat(props) {
   };
 
   const hndelCetak = () => {
-    let mainContent =
-      $('#frame-letter div').find(`font[method='dev']`).css('border', 'none')
-        .prevObject[0]?.innerHTML ?? ``;
-
-    mainContent =
-      $(mainContent).find("input[type='checkbox']").hide().prevObject[0]
-        ?.innerHTML ?? ``;
-
-    setContent(mainContent);
     // console.log(getRedux);
-    const TimePrint = setInterval(() => {
-      $('.containerLoadingFull').addClass('hide-load').removeClass('show-load');
-      handlePrint();
-      clearInterval(TimePrint);
-    }, 1000);
-    return;
     if ($('#frame-letter').find('.inp').length) {
       $('#frame-letter').find('.inp')[0].focus();
     } else {

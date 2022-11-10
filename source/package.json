@@ -5,9 +5,9 @@
   "author": "ego oktafanda",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "npm run watch:css && react-scripts start",
+    "start": "webpack --config webpack.config.js --mode=development",
     "test": "tape App/*.js",
-    "build": "webpack --config webpack.config.js --mode=development",
+    "build": "webpack --config webpack.config.js --mode=production",
     "production": "webpack --config webpack.config.js --mode=production",
     "watch": "npm-watch",
     "builder": "webpack watch",
@@ -15,7 +15,7 @@
     "watch:css": "postcss src/styles/tailwind.css -o src/styles/output.css"
   },
   "watch": {
-    "build": {
+    "start": {
       "patterns": [
         "src/**/*.js",
         "src/**/*.jsx",
